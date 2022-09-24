@@ -1,6 +1,6 @@
 # Convert File Format
 
-You can change file format with this code.
+You can change the format of many files at once with this code.
 
 1) Create two folders 'convert' and 'converted' on the desktop.  
 2) Put the files you want to convert in the 'convert' folder.  
