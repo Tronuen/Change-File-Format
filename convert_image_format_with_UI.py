@@ -8,12 +8,14 @@ import os
 get_from_folder = os.environ['HOMEPATH'] + '\Desktop\convert\\'
 put_to_folder = os.environ['HOMEPATH'] + '\Desktop\converted\\'
 
+extensions = ['all', 'jpg', 'jpeg', 'png', 'webp']
 
 def convert_all(to_ext, mode):
     for file in ld(get_from_folder):
         x, from_ext = os.path.splitext(file)
-        im = Image.open(get_from_folder + file).convert("RGB")
-        im.save(put_to_folder + file.replace(from_ext, to_ext), mode)
+        if from_ext[1:] in extensions:
+            im = Image.open(get_from_folder + file).convert("RGB")
+            im.save(put_to_folder + file.replace(from_ext, to_ext), mode)
 
 def convert_fonk():
     from_ext = "." + cb1.get()
@@ -46,7 +48,6 @@ title.place(x = 130, y = 10)
 txt1 = Label(text = "From", fg = "#08cfdd", bg = "white", font = ("Open Sans", "13", "bold"))
 txt1.place(x = 70, y = 70)
 
-extensions = ['all', 'jpg', 'jpeg', 'png', 'webp']
 var1 = StringVar()
 var1.set("all")
 cb1 = Combobox(master = window, textvariable = var1, values = extensions)
